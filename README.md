@@ -2,9 +2,7 @@
 
 Huge thanks to: [fedora-asahi-builder](https://github.com/leifliddy/asahi-fedora-builder) and [nabu-fedora-build](https://github.com/nik012003/nabu-fedora-builder)
 
-Builds a minimal Fedora image to run on Xiaomi Mi Pad 6
-
-Read the [Install instructions](install.md)
+Builds a Fedora image to run on Xiaomi Mi Pad 6
 
 ## Fedora Package Install
 
@@ -24,3 +22,4 @@ docker run --privileged -v "$(pwd)"/images:/build/images -v "/dev:/dev" pipa-fed
 ### User Notes
 
 1. The root password is **fedora**
+2. The user password is 147147
