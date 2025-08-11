@@ -1,6 +1,6 @@
 # pipa-fedora-builder
 
-Huge thanks to: [fedora-asahi-builder](https://github.com/leifliddy/asahi-fedora-builder)
+Huge thanks to: [fedora-asahi-builder](https://github.com/leifliddy/asahi-fedora-builder) and [nabu-fedora-build](https://github.com/nik012003/nabu-fedora-builder)
 
 Builds a minimal Fedora image to run on Xiaomi Mi Pad 6
 
