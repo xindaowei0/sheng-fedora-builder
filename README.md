@@ -1,8 +1,8 @@
-# nabu-fedora-builder
+# pipa-fedora-builder
 
 Huge thanks to: [fedora-asahi-builder](https://github.com/leifliddy/asahi-fedora-builder)
 
-Builds a minimal Fedora image to run on Xiaomi Mi Pad 5
+Builds a minimal Fedora image to run on Xiaomi Mi Pad 6
 
 Read the [Install instructions](install.md)
 
@@ -17,8 +17,8 @@ Read the [Install instructions](install.md)
 ## Run inside a Docker Container
 
 ```
-docker build -t 'nabu-fedora-builder' . 
-docker run --privileged -v "$(pwd)"/images:/build/images -v "/dev:/dev" nabu-fedora-builder
+docker build -t 'pipa-fedora-builder' . 
+docker run --privileged -v "$(pwd)"/images:/build/images -v "/dev:/dev" pipa-fedora-builder
 ```
 
 ### User Notes

@@ -2,12 +2,12 @@
 
 ## Step 1: Partitioning device
 
-**NOTE**: The commands below are for a 128GB nabu, please double check them before running them, and change the sizes of the partitions accordingly. To print the partitions inside `parted` use the `print` command.
+**NOTE**: The commands below are for a 128GB pipa, please double check them before running them, and change the sizes of the partitions accordingly. To print the partitions inside `parted` use the `print` command.
 
-Download and boot a [custom recovery image](https://github.com/serdeliuk/xiaomi-nabu-orangefox/releases) to partition the disk.
+Download and boot a [custom recovery image](https://github.com/serdeliuk/xiaomi-pipa-orangefox/releases) to partition the disk.
 
 ```sh
-fastboot boot xiaomi-nabu-orangefox.img 
+fastboot boot xiaomi-pipa-orangefox.img 
 ```
 
 Enter a shell with `adb shell` and run `parted /dev/block/sda`: 
@@ -23,7 +23,7 @@ and then `reboot` the device to make android regenerate userdata.
 Re enter fastboot and boot the recovery image
 
 ```sh
-fastboot boot xiaomi-nabu-orangefox.img 
+fastboot boot xiaomi-pipa-orangefox.img 
 ```
 
 Enter a shell with `adb shell` and run the following
@@ -41,9 +41,9 @@ reboot
 
 ## Step 2 : Flashing
 
-Download and extract the most recent release [here](https://github.com/nik012003/nabu-fedora-builder/releases).
+Download and extract the most recent release [here](https://github.com/nik012003/pipa-fedora-builder/releases).
 
-Download [u-boot for nabu](https://gitlab.com/sm8150-mainline/u-boot/-/jobs).
+Download [u-boot for pipa](https://gitlab.com/sm8150-mainline/u-boot/-/jobs).
 
 Download and extract [vbmeta_disabled.img](https://github.com/user-attachments/files/20102572/vbmeta_disabled.zip).
 

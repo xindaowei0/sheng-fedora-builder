@@ -1,2 +1,4 @@
-LABEL=fedoraefi               /boot/efi     vfat  umask=0077,shortname=winnt  0 2
-UUID=ROOTFS_UUID_PLACEHOLDER  /             ext4  defaults                    0 0
+# /etc/fstab: static file system information.
+#
+# <file system>               <mount point> <type>  <options>                         <dump>  <pass>
+UUID=ROOTFS_UUID_PLACEHOLDER  /             ext4    defaults,errors=remount-ro,x-systemd.growfs  0 0
