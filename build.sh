@@ -140,6 +140,7 @@ make_image() {
     chroot $image_mnt ln -s ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
     echo -e '\n### Copying boot image'
+    ls $image_mnt/boot
     cp $image_mnt/boot/boot*.img $image_dir/$image_name/boot.img
 
     echo -e '\n### Unmounting rootfs subvolumes'
