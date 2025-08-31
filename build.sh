@@ -139,9 +139,33 @@ make_image() {
     rm -f $image_mnt/etc/resolv.conf
     chroot $image_mnt ln -s ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
-    echo -e '\n### Copying boot image'
+    echo -e '\n### Build boot image'
     ls $image_mnt/boot
-    cp $image_mnt/boot/boot*.img $image_dir/$image_name/boot.img
+    cat $image_mnt/boot/vmlinuz-6.16.0-1-sm8550 $image_mnt/boot/sm8550-xiaomi-sheng.dtb > "$KERNEL_DTB_IMAGE"
+    ABOOT_IMAGE="$image_mnt/boot/boot.img"
+
+    CMDLINE="$(cat $image_mnt/etc/cmdline 2> $image_mnt/dev/null || true)"
+
+    [ -z "$CMDLINE" ] && {
+        log "/etc/cmdline empty or not found. Reusing current cmdline"
+        CMDLINE="$(<$image_mnt/proc/cmdline)"
+    }
+
+    mkbootimg \
+    --header_version 0 \
+    --kernel_offset 0x00008000 \
+    --base 0x00000000 \
+    --ramdisk_offset 0x02000000 \
+    --second_offset 0x00000000 \
+    --tags_offset 0x01e00000 \
+    --pagesize 4096 \
+    --kernel "$KERNEL_DTB_IMAGE" \
+    --ramdisk $image_mnt/boot/initramfs-6.16.0-1-sm8550.img \
+    --cmdline "$CMDLINE" \
+    -o "$ABOOT_IMAGE"
+
+    echo -e '\n### Copying boot image'
+    cp $image_mnt/boot/boot.img $image_dir/$image_name/boot.img
 
     echo -e '\n### Unmounting rootfs subvolumes'
     umount $image_mnt
