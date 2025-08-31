@@ -141,7 +141,7 @@ make_image() {
 
     echo -e '\n### Build boot image'
     ls $image_mnt/boot
-    cat $image_mnt/boot/vmlinuz-6.16.0-1-sm8550 $image_mnt/boot/sm8550-xiaomi-sheng.dtb > "$KERNEL_DTB_IMAGE"
+    cat $image_mnt/boot/vmlinuz-6.16.0-1-sm8550 $image_mnt/boot/sm8550-xiaomi-sheng.dtb > Image-dtb
     ABOOT_IMAGE="$image_mnt/boot/boot.img"
 
     CMDLINE="$(cat $image_mnt/etc/cmdline 2> $image_mnt/dev/null || true)"
@@ -159,7 +159,7 @@ make_image() {
     --second_offset 0x00000000 \
     --tags_offset 0x01e00000 \
     --pagesize 4096 \
-    --kernel "$KERNEL_DTB_IMAGE" \
+    --kernel Image-dtb \
     --ramdisk $image_mnt/boot/initramfs-6.16.0-1-sm8550.img \
     --cmdline "$CMDLINE" \
     -o "$ABOOT_IMAGE"
