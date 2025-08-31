@@ -103,6 +103,7 @@ make_image() {
     # Dirty patch: reinstalling kernel
     echo '### Reinstalling kernel'
     local kernel_path="$(arch-chroot $image_mnt bash -c 'find /usr/lib/modules/* -maxdepth 0 -type d')"
+    arch-chroot $image_mnt ls $kernel_path
     arch-chroot $image_mnt kernel-install add "$(basename "$kernel_path")" "${kernel_path}/vmlinuz" --verbose
 
     echo "### Enabling system services"
