@@ -108,7 +108,7 @@ make_image() {
 
     echo "### Enabling system services"
     arch-chroot $image_mnt systemctl enable NetworkManager sshd systemd-resolved
-    arch-chroot $image_mnt systemctl enable qbootctl-mark-bootable bootmac-bluetooth
+    arch-chroot $image_mnt systemctl enable qbootctl-mark-bootable
     arch-chroot $image_mnt systemctl disable iio-sensor-proxy
 
     echo "### Disabling systemd-firstboot"
