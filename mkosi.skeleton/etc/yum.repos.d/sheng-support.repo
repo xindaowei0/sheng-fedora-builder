@@ -1,0 +1,12 @@
+[sheng-support]
+name=Xiaomi Pad 6s Pro - Support Repo
+baseurl=https://download.copr.fedorainfracloud.org/results/abbosbek1507/sheng-support/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://download.copr.fedorainfracloud.org/results/abbosbek1507/sheng-support/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
+priority=90
+
