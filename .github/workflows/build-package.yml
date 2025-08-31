@@ -25,7 +25,7 @@ jobs:
     - name: Install mkbootimg
       run: |
           sudo apt-get update
-          sudo apt-get install -y android-tools-mkbootimg
+          sudo apt-get install -y mkbootimg
 
     - name: Build the Docker image
       run: docker build . -t 'sheng-fedora-builder'
